@@ -7,7 +7,8 @@
 class Application {
 
 	public function bootstrap() {
-		phpinfo();
+		//session_start();
+		$router = new Router();
 	}
 
 }
