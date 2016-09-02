@@ -12,24 +12,29 @@ use Hriste\Application;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @var Application
+	 */
+	protected $app;
+
 	public function setUp() {
 		@session_start();
+		$this->app = new Application();
+		$this->app->bootstrap();
 	}
 
 	/**
 	 * @test
 	 */
-	public function should_run_test() {
-		$this->assertEquals(66, 66);
+	public function should_instantiate() {
+		$this->assertInstanceOf(Application::class, $this->app);
 	}
 
 	/**
 	 * @test
 	 */
-	public function autoloads_application() {
-		$app = new Application();
-		$this->assertInstanceOf(Application::class, $app);
-		$app->bootstrap();
+	public function should_load_environment() {
+		$this->assertNotEmpty(getenv('DB_HOST'));
 	}
 
 }

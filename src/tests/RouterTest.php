@@ -8,10 +8,13 @@
 
 namespace Hriste\Tests;
 
+use Hriste\Controllers\ApiZarizeniController;
+use Hriste\Request;
 use Hriste\Router;
 
 class RouterTest extends \PHPUnit_Framework_TestCase {
 
+	/** @var Router */
 	protected $object;
 
 	public function setUp() {
@@ -24,6 +27,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function should_instantiate() {
 		$this->assertInstanceOf(Router::class, $this->object);
+	}
+
+	/**
+	 * @test
+	 */
+	public function should_instantiate_controller() {
+		$request = new Request();
+		$request->path = '/api/zarizeni';
+		$controller = $this->object->getControllerFor($request);
+		$this->assertInstanceOf(ApiZarizeniController::class, $controller);
 	}
 
 }
