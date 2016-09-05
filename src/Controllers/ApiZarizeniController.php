@@ -8,7 +8,7 @@
 
 namespace Hriste\Controllers;
 
-use Hriste\Request;
+use Hriste\Request\Request;
 
 class ApiZarizeniController {
 

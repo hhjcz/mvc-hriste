@@ -9,6 +9,7 @@
 namespace Hriste;
 
 use Hriste\Controllers\Controller;
+use Hriste\Request\Request;
 
 class Router {
 
@@ -22,7 +23,7 @@ class Router {
 	}
 
 	public function getControllerFor(Request $request) {
-		$controllerClass = $this->controllersNamespace . $this->getControllerClass($request->path);
+		$controllerClass = $this->controllersNamespace . $this->getControllerClass($request->getPath());
 		if (class_exists($controllerClass)) {
 			return new $controllerClass();
 		} else {

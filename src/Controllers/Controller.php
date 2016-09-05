@@ -8,12 +8,14 @@
 
 namespace Hriste\Controllers;
 
-use Hriste\Request;
+use Hriste\Request\Request;
 
 class Controller {
 
 	public function index(Request $request) {
 		header('My-custom: 666');
+		dump($_GET);
+		dump($_SERVER);
 		dump($request);
 	}
 }

@@ -3,6 +3,8 @@
 require_once 'helpers.php';
 
 use Dotenv\Dotenv;
+use Hriste\Request\GlobalParser;
+use Hriste\Request\RequestParser;
 
 /**
  *
@@ -10,15 +12,23 @@ use Dotenv\Dotenv;
  */
 class Application {
 
+	/** @var RequestParser */
+	private $requestParser;
+
 	public function bootstrap() {
 		//session_start();
 		$this->loadEnvironment();
+		if (PHP_SAPI === 'cli') {
+			$this->requestParser = new GlobalParser();
+		} else {
+			$this->requestParser = new GlobalParser();
+		}
 		return $this;
 	}
 
 	public function run() {
-		$request = Request::makeFromGlobal();
 		$router = new Router();
+		$request = $this->requestParser->parse();
 		$router->route($request);
 	}
 
