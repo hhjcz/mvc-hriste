@@ -17,7 +17,6 @@ class Connection {
 		$database = $config['database'];
 		$charset = $config['charset'];
 		$dsn = "$driver:host=$host;dbname=$database;charset=$charset";
-		dump($config);
 
 		try {
 			$this->pdo = new \PDO($dsn, $config['username'], $config['password'], [\PDO::FETCH_OBJ]);
