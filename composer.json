@@ -1,9 +1,14 @@
 {
   "name": "hhjcz/mvc-hriste",
+  "license": "Apache-2.0",
   "description": "kdo si hraje, nezlobi",
   "type": "project",
   "scripts": {
-    "dev": "php -S localhost:8080 -t public server.php",
+    "dev": "cd laradock && docker-compose up -d nginx mysql phpmyadmin",
+    "dev:stop": "cd laradock && docker-compose down",
+    "xdebug:on": "cd laradock && ./xdebugPhpFpm start",
+    "xdebug:off": "cd laradock && ./xdebugPhpFpm stop",
+    "dev:local": "php -S localhost:8080 -t public server.php",
     "test": "phpunit"
   },
   "require": {
