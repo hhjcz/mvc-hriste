@@ -9,7 +9,8 @@
     "xdebug:on": "cd laradock && ./xdebugPhpFpm start",
     "xdebug:off": "cd laradock && ./xdebugPhpFpm stop",
     "dev:local": "php -S localhost:8080 -t public server.php",
-    "test": "phpunit"
+    "test": "docker exec -i --user=laradock laradock_workspace_1 composer run test:local",
+    "test:local": "phpunit"
   },
   "require": {
     "php": ">=5.4",
