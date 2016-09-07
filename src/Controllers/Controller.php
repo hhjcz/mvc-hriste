@@ -17,5 +17,6 @@ class Controller {
 		dump($_GET);
 		dump($_SERVER);
 		dump($request);
+		phpinfo();
 	}
 }

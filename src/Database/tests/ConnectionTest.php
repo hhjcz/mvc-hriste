@@ -8,6 +8,7 @@
 
 namespace Hriste\Database\Tests;
 
+use Dotenv\Dotenv;
 use Hriste\Database\Connection;
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase {
@@ -15,6 +16,8 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase {
 	protected $fakeConfig;
 
 	public function setUp() {
+		$dotenv = new Dotenv(basepath());
+		$dotenv->load();
 		$this->fakeConfig = [
 			'driver'   => env('DB_DRIVER', 'mysql'),
 			'host'     => env('DB_HOST', 'localhost'),

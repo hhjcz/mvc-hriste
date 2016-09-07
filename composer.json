@@ -3,7 +3,8 @@
   "description": "kdo si hraje, nezlobi",
   "type": "project",
   "scripts": {
-    "dev": "php -S localhost:8080 -t public server.php"
+    "dev": "php -S localhost:8080 -t public server.php",
+    "test": "phpunit"
   },
   "require": {
     "php": ">=5.4",
