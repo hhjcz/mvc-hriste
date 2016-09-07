@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cd laradock && docker-compose up -d nginx mysql phpmyadmin",
     "dev:stop": "cd laradock && docker-compose down",
-    "xdebug:on": "cd laradock && ./xdebugPhpFpm start",
-    "xdebug:off": "cd laradock && ./xdebugPhpFpm stop",
+    "xdebug:on": "cd laradock && ./xdebugPhpFpm start || true",
+    "xdebug:off": "cd laradock && ./xdebugPhpFpm stop || true",
     "dev:local": "php -S localhost:8080 -t public server.php",
     "test": "docker exec -i --user=laradock laradock_workspace_1 composer run test:local",
     "test:local": "phpunit"
