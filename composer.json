@@ -4,12 +4,14 @@
   "description": "kdo si hraje, nezlobi",
   "type": "project",
   "scripts": {
-    "dev": "cd laradock && docker-compose up -d nginx mysql phpmyadmin",
-    "dev:stop": "cd laradock && docker-compose stop",
-    "xdebug:on": "cd laradock && ./xdebugPhpFpm start || true",
-    "xdebug:off": "cd laradock && ./xdebugPhpFpm stop || true",
+    "dev": "docker/compose-wrapper.sh up nginx mariadb phpmyadmin",
+    "dev:start": "@dev",
+    "dev:stop": "docker/compose-wrapper.sh stop",
+    "dev:down": "docker/compose-wrapper.sh down",
+    "xdebug:on": "cd docker && ./xdebugPhpFpm start || true",
+    "xdebug:off": "cd docker && ./xdebugPhpFpm stop || true",
     "dev:local": "php -S localhost:8080 -t public server.php",
-    "test": "docker exec -i --user=laradock laradock_workspace_1 composer run test:local",
+    "test": "docker exec -i --user=laradock mvchriste_workspace_1 composer run test:local",
     "test:local": "phpunit"
   },
   "require": {
