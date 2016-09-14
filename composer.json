@@ -36,5 +36,11 @@
       "name": "Jan Haering",
       "email": "hhj@centrum.cz"
     }
-  ]
+  ],
+  "extra": {
+    "heroku": {
+      "document-root": "public",
+      "index-document": "index.php"
+    }
+  }
 }
