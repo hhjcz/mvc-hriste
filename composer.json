@@ -8,6 +8,7 @@
     "dev:start": "@dev",
     "dev:stop": "docker/compose-wrapper.sh stop",
     "dev:down": "docker/compose-wrapper.sh down",
+    "dev:status": "docker/compose-wrapper.sh status",
     "xdebug:on": "cd docker && ./xdebugPhpFpm start || true",
     "xdebug:off": "cd docker && ./xdebugPhpFpm stop || true",
     "dev:local": "php -S localhost:8080 -t public server.php",
