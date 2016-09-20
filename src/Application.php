@@ -33,10 +33,10 @@ class Application {
 	}
 
 	private function loadEnvironment() {
-		try {
-			$dotenv = new Dotenv(basepath(), '.env');
-			$dotenv->load();
-		} catch (\Exception $e) {
+		$envfile = basepath() . '.env';
+		if (file_exists($envfile)) {
+			$dotenv = new Dotenv($envfile);
+			//$dotenv->load();
 		}
 	}
 
