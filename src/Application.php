@@ -33,8 +33,11 @@ class Application {
 	}
 
 	private function loadEnvironment() {
-		$dotenv = new Dotenv(basepath(), '.env');
-		$dotenv->load();
+		try {
+			$dotenv = new Dotenv(basepath(), '.env');
+			$dotenv->load();
+		} catch (\Exception $e) {
+		}
 	}
 
 }
